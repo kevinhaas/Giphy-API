@@ -172,7 +172,7 @@ body {
 
 #buttonDiv {
     position: relative;
-    margin-top: 32%;
+    margin-top: 50%;
     left: 2%;
     padding-bottom: 5%;
     width: 100%;
@@ -208,9 +208,10 @@ body {
 }
 
 #searchArea {
-    position: relative;
+    position: absolute;
+    margin-top: 15%;
     right: 17%;
-    top: 15%;
+    top: 9%;
 }
 
 #searchField {
@@ -219,8 +220,8 @@ body {
     z-index: 0;
 }
 
-.btn {
-    margin: 2% 5% 5% 9% ;
+.searchBtn {
+    margin: 0% 5% 5% 9% ;
 }
 
 }
