@@ -208,9 +208,9 @@ body {
 }
 
 #searchArea {
-    position: absolute;
+    position: relative;
     right: 17%;
-    top: 9%;
+    top: 15%;
 }
 
 #searchField {
@@ -285,6 +285,7 @@ body {
 
 #searchArea {
     position: absolute;
+    margin-top: 10%;
     right: 17%;
     top: 9%;
 }
