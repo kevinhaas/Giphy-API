@@ -18,6 +18,11 @@ var apiKey = "dc6zaTOxFJmzC";
 
 var buttons = ["music", "computers", "food", "fractals", "phish", "guitar", "dreams", "boston terrier", "dogs and cats", "coffee", "venture bros"];
 
+// into fade
+$("#topRightDiv, #bottomRightDiv, #searchArea, #buttonDiv, #results").hide();
+$("#introImg").fadeOut(4000);
+$("#topRightDiv, #bottomRightDiv, #searchArea, #buttonDiv, #results").delay(3300).fadeIn(3000);
+
 function loadButtons() {
     
     for (var i = 0; i < buttons.length; i++) {
@@ -81,11 +86,6 @@ $("body").off('click').on("click", ".button", function displayResults() {
 });
          
         
-        $("#topRightDiv, #bottomRightDiv, #searchArea, #buttonDiv, #results").hide();
-        $("#introImg").fadeOut(4000);
-        $("#topRightDiv, #bottomRightDiv, #searchArea, #buttonDiv, #results").delay(3300).fadeIn(3000);
-        
-
 
 
 loadButtons();

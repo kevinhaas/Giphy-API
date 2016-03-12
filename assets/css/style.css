@@ -80,6 +80,8 @@ body {
 
 #introImg {
     width: 100%;
+    z-index: 1;
+    position: absolute;
 }
 
 #buttonDiv {
@@ -126,6 +128,8 @@ body {
 
 #searchField {
     width: 400px;
+    position: relative;
+    z-index: 0;
 }
 
 .btn {
