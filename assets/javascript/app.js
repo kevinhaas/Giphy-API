@@ -10,6 +10,8 @@
 
 // animate buttons on click with css3 dynamically
 
+// make buttons fade in on add. can probably use jQ to set style display:none and then fade in?
+
 // make api corner image a sticky footer in that spot
 
 // make buttons into a constructor and push new search to it?
@@ -31,13 +33,20 @@ function loadButtons() {
     }
 }
 
-$("#addBtn").on("click", function addBtn() { 
-    
-    document.onkeyup = function (playerInput) {
-        if (playerInput.keyCode == 13) {
-         addBtn();
-        }
+// click and enter key funcs
+document.onkeyup = function (playerInput) {
+    if (playerInput.keyCode == 13) {
+        
+        var newBtn = $("#searchField").val().trim();
+        
+        buttons.push(this);
+        $("#buttonDiv").append("<div data-search='" + newBtn + "' class='button badge'>" + newBtn);
+        $("#searchField").val("");
+        
     }
+}
+
+$("#addBtn").on("click", function addBtn() {    
     
     var newBtn = $("#searchField").val().trim();
     
@@ -48,7 +57,7 @@ $("#addBtn").on("click", function addBtn() {
 });
 
 $("#clearBtn").on("click", function clearBtn() { 
-    $("#results").empty(); 
+    $("#resultDiv").empty(); 
 });
 
 $("body").off('click').on("click", ".button", function displayResults() { 
@@ -75,11 +84,11 @@ $("body").off('click').on("click", ".button", function displayResults() {
         for (var i = 0; i < results.length; i++) {
             console.log(results[i].images.fixed_height.url)
             
-            var resultDiv = $("<img class='resultDiv'>");
+            var result = $("<img class='result'>");
              
-            resultDiv.attr("src", response.data[i].images.fixed_height.url);
+            result.attr("src", results[i].images.fixed_height.url);
              
-            $("#results").prepend(resultDiv);
+            $("#resultDiv").prepend(result);
         }
 
     });      
