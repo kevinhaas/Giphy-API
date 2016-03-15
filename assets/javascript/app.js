@@ -63,7 +63,7 @@ $("#clearBtn").on("click", function clearBtn() {
 $("body").off('click').on("click", ".button", function displayResults() { 
     
     
-    // allows page to scroll. wasn't visible to begin with because the intro gif would show a vertical scroll bar with overflow visible
+    // allows page to scroll. it's set to hidden at first because the intro gif would show a vertical scroll bar with overflow visible
     $("body").css("overflow", "visible");
     
 
@@ -79,18 +79,35 @@ $("body").off('click').on("click", ".button", function displayResults() {
         console.log(response.data);
    
     
-        var results = response.data      
-             
+        var results = response.data;
+           
         for (var i = 0; i < results.length; i++) {
-            console.log(results[i].images.fixed_height.url)
+            console.log(results[i].images.fixed_height.url);
             
-            var result = $("<img class='result'>");
-             
-            result.attr("src", results[i].images.fixed_height.url);
-             
-            $("#resultDiv").prepend(result);
-        }
+            var result = $("<img data-still='" + results[i].images.fixed_height_still.url + "' data-anim='" + results[i].images.fixed_height.url + "' class='result'>");
+            
+            var gifStill = $(result).attr("data-still");
+            
+            var gifAnim =  $(result).attr("data-anim");
+            
+            result.attr("src", gifStill);
+            
+            $("#resultDiv").prepend(result);            
+           
+            
+$("body").off('click').on("click", ".result", function startStopGif() {
 
+    if ($(this).attr("src") == $(this).data('still') ) {
+        $(this).attr('src', $(this).data('anim'));
+    }
+    else{
+        $(this).attr('src', $(this).data('still'));
+    }
+        
+    
+});
+            }
+            
     });      
 });
          
@@ -98,3 +115,5 @@ $("body").off('click').on("click", ".button", function displayResults() {
 
 
 loadButtons();
+
+// make the animated/still into a variable that changes onclick
