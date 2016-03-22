@@ -100,7 +100,7 @@ $("body").off('click').on("click", ".button", function displayResults() {
 });
 
 // animates the image and stops it on click   
- $(document).on("click", ".result", function startStopGif() {
+ $("body").on("click", ".result", function startStopGif() {
 
     if ($(this).attr("src") == $(this).data("still")) {
         $(this).attr("src", $(this).data("anim"));                   
