@@ -1,6 +1,8 @@
 // Giphy API
 // Kevin Haas 2016
 
+// make the gifs fixed width as well? can't figure out a weigh to nicely get them to display when there are really wide ones
+
 // make api corner image a sticky footer in that spot
 
 var apiKey = "dc6zaTOxFJmzC";
@@ -14,12 +16,12 @@ $("#topRightDiv, #bottomRightDiv, #searchArea, #buttonDiv, #results, #instructio
 $("#introImg").fadeOut(4000);
 $("#topRightDiv, #bottomRightDiv, #searchArea, #buttonDiv, #results, #instructions").delay(3300).fadeIn(3000);
 
-function loadButtons() {
+$(document).ready(function loadButtons() {
     
     for (var i = 0; i < buttons.length; i++) {
         $("#buttonDiv").append("<div data-search='" + buttons[i] + "' class='button badge'>" + buttons[i]);  
     }
-}
+});
 
 // click and enter key funcs
 document.onkeyup = function (playerInput) {
@@ -32,6 +34,7 @@ document.onkeyup = function (playerInput) {
         $("#searchField").val("");
     }
 }
+
 
 $("#addBtn").on("click", function addBtn() {    
     
@@ -52,6 +55,8 @@ $("body").off('click').on("click", ".button", function displayResults() {
     
 // allows page to scroll. it's set to hidden at first because the intro gif would show a vertical scroll bar with overflow visible
     $("body").css("overflow", "visible");
+// clear results on new search
+    // $("#resultDiv").empty(); 
     
     var search = $(this).attr("data-search");
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=" + apiKey + "&limit=" + maxResults;
@@ -62,10 +67,8 @@ $("body").off('click').on("click", ".button", function displayResults() {
         
      .done(function(response) {
         console.log(response.data);
-   
     
-        var results = response.data;
-        
+        var results = response.data;      
         
 // creation of the results including the rating
         for (var i = 0; i < results.length; i++) {
@@ -89,22 +92,21 @@ $("body").off('click').on("click", ".button", function displayResults() {
             
             
             $("#resultDiv").prepend(resultDiv);
-            $("#rating").append(rating);
-   
-// animates the image and stops it on click          
-$(document).on("click", ".result", function startStopGif() {
+            $("#rating").append(rating);       
+        }
+                
+    }); 
+ 
+});
 
-    if ($(this).attr("src") == $(this).data('still') ) {
-        $(this).attr("src", $(this).data("anim"));
+// animates the image and stops it on click   
+ $(document).on("click", ".result", function startStopGif() {
+
+    if ($(this).attr("src") == $(this).data("still")) {
+        $(this).attr("src", $(this).data("anim"));                   
     }
-    else{
+    else if ($(this).attr("src") == $(this).data("anim")) {
         $(this).attr("src", $(this).data("still"));
     }
-});
-           
-    }
-            
-    });      
-});
+});    
          
-loadButtons();
