@@ -11,7 +11,7 @@ var maxResults = "25";
 
 var buttons = ["music", "computers", "food", "fractals", "phish", "guitar", "dreams", "boston terrier", "dogs and cats", "coffee", "venture bros"];
 
-// into fade
+// intro fade
 $("#topRightDiv, #bottomRightDiv, #searchArea, #buttonDiv, #results, #instructions").hide();
 $("#introImg").fadeOut(4000);
 $("#topRightDiv, #bottomRightDiv, #searchArea, #buttonDiv, #results, #instructions").delay(3300).fadeIn(3000);
