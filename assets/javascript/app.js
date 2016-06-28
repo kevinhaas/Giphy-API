@@ -1,7 +1,7 @@
 // Giphy API
 // Kevin Haas 2016
 
-// make the gifs fixed width as well? can't figure out a weigh to nicely get them to display when there are really wide ones
+// make the gifs fixed width as well? can't figure out a way to nicely get them to display when there are really wide ones
 
 // make api corner image a sticky footer in that spot
 
