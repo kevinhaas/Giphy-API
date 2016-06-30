@@ -7,10 +7,10 @@
 * Media queries for some non-desktop resoultions
 
 #### Utilizes:
-HTML5
-CSS3
-JavaScript
-jQuery
+HTML5<br />
+CSS3<br />
+JavaScript<br />
+jQuery<br />
 Bootstrap
 
 #### Server-side:
